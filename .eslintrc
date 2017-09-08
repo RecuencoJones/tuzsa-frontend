@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "extends": "standard",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "html"
+  ],
+  "globals": {
+    "__API__": false
+  },
+  "env": {
+    "serviceworker": true,
+    "browser": true
+  },
+  "rules": {
+    "space-before-function-paren": "off"
+  }
+}

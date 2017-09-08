@@ -1,0 +1,17 @@
+{
+  "root": ".",
+  "routes": {
+    "/*.html": "index.html"
+  },
+  "https_only": true,
+  "headers": {
+    "/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  },
+  "proxies": {
+    "/api": {
+      "origin": "https://tuzsa-backend.herokuapp.com/"
+    }
+  }
+}

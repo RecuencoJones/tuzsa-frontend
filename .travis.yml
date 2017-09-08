@@ -1,0 +1,32 @@
+dist: trusty
+language: node_js
+node_js:
+  - '7'
+
+addons:
+  sonarcloud:
+    organization: 'recuencojones-github'
+    branches:
+      - develop
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm run build
+  - sonar-scanner
+
+before_deploy:
+  - "sed -i '/dist/d' .gitignore"
+  - "git add dist"
+  - "git commit -m 'DEPLOY heroku'"
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "BrUzZopHtwUZC3Z+RUSsQ0RvELpWd3SEauMXD9Z3SEHogn8Yam4h58G7K0N4mrCl22Vu2QPX9U5oQIEbdjly80ZyLcug4u4/xklRGwFQ7maJog4d7dmnvySxJ6RoCIRYE7kcdJXFS0EiOESeGFIJYOTDjiAseJHo9O86sWvua59e0GfW4QgDahc0Ap8ALpBqI8TVX0/oHq7/d2E949m6hOxHCxmSnc1DSsd/+lVVFeOi5ljzhA0etdaGYsa/hBwpjf1CxSbB0Aj+3Dh1XSd3p5WNql2iwAHw2CPMMiLAUH9qEVS+CRncBEqAptkQgr3rKvURgL5qWwkTJYsSl26+/Z/e/e/DeHOHCF7cZonznrP/b4Mv2fukbPPCG74Zrd4t/P1EZZi5Q3Qk4fJS4I/fx9k5ts5FN+8LTPcb5985yCu3HmFxI9vsLkm+GHGoP0yMow9Mnmxvk7JSEa9eT9mOtQFNnnGYLzJDuRGkVnE43ghhalJmJWw975bFzFTxtqP0/zBRurze8JrxwaXQb9FPhAkDCnh95sAGg8dM9t36AsBz8rICVTY9pdnR6x2eFxoYRlfJ4xlcXlj4dOhohdEGqwV1Xgu+03wscp4bB5Zi1WFYF/TiDqpPDNx9K33r1uhEbbmRDXmArbbfkoSfFJHJLuDdtPGuE0gT7hpe+M9Ns9I="
+  skip_cleanup: true
+  strategy: git
+  app: tuzsa-frontend
+  on: develop

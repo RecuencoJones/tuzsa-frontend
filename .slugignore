@@ -1,0 +1,14 @@
+mock
+node_modules
+src
+.babelrc
+.editoconfig
+.eslintrc
+.postcssrc.js
+.travis.yml
+Dockerfile
+nginx.conf
+package.json
+README.md
+sonar-project.properties
+webpack.config.js

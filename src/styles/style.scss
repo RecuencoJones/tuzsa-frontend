@@ -1,0 +1,17 @@
+@import "sizes";
+@import "fonts";
+@import "mixins";
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+html {
+  font-family: $main-font-family;
+  font-size: $main-font-size;
+  min-width: $viewport-min-size;
+}
+
+@import "common"
