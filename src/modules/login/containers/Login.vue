@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="login-panel">
-      <form class="login-form" @submit="logIn()">
+      <form class="login-form" @submit.prevent="logIn()">
         <input type="text">
         <input type="password">
         <button type="submit"></button>
@@ -22,9 +22,7 @@
 export default {
   name: 'login',
   methods: {
-    logIn($event) {
-      $event.preventDefault()
-    }
+    logIn() {}
   }
 }
 </script>
